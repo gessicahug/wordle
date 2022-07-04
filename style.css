@@ -24,7 +24,7 @@ body {
 
 .title-container {
   width: 330px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .key-container {
@@ -51,6 +51,10 @@ body {
   width: 68px;
 }
 
+.tile-container {
+  padding-top: 10px;
+}
+
 .tile-container div {
   display: flex;
 }
@@ -64,4 +68,16 @@ body {
   justify-content: center;
   align-items: center;
   margin: 2px;
+}
+
+.message-container {
+  height: 30px;
+  margin: 0;
+}
+
+.message-container p {
+  background-color: #818384;
+  border: 10px;
+  margin: 0;
+  padding: 5px;
 }
