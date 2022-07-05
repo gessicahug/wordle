@@ -2,8 +2,17 @@ const tileDisplay = document.querySelector('.tile-container')
 const keyboard = document.querySelector('.key-container')
 const messageDisplay = document.querySelector('.message-container')
 
-const wordle = 'BARCO'
+let wordle
 
+const getWordle = () => {
+  fetch('http://localhost:8000/word')
+    .then(response => response.json())
+    .then(json => {
+      wordle = json.toUpperCase()
+    })
+    .catch(err => console.log(err))
+}
+getWordle()
 const keys = [
   'Q',
   'W',
