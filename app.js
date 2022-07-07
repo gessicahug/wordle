@@ -9,6 +9,7 @@ const getWordle = () => {
     .then(response => response.json())
     .then(json => {
       wordle = json.toUpperCase()
+      console.log(wordle)
     })
     .catch(err => console.log(err))
 }
@@ -113,31 +114,28 @@ const deleteLetter = () => {
 const checkRow = () => {
   const guess = guessRows[currentRow].join('')
   if (currentTile > 4) {
-    fetch(`http://localhost:8000/check/?word=${guess}`)
-      .then(response => response.json())
-      .then(json => {
-        if (json == 'Entry word not found') {
-          showMessage('word not in list')
+    // fetch(`http://localhost:8000/check/?word=${guess}`)
+    //   .then(response => response.json())
+    //   .then(json => {
+
+        flipTile()
+        if (wordle == guess) {
+          showMessage('Acertou!')
+          isGameOver = true
           return
         } else {
-          flipTile()
-          if (wordle == guess) {
-            showMessage('Magnificent!')
+          if (currentRow >= 5) {
             isGameOver = true
+            showMessage('Game Over ):')
             return
-          } else {
-            if (currentRow >= 5) {
-              isGameOver = true
-              showMessage('Game Over')
-              return
-            }
-            if (currentRow < 5) {
-              currentRow++
-              currentTile = 0
-            }
           }
+          if (currentRow < 5) {
+            currentRow++
+            currentTile = 0
+          }
+
         }
-      }).catch(err => console.log(err))
+      // }).catch(err => console.log(err))
   }
 }
 
