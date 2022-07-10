@@ -7,6 +7,9 @@ const app = express()
 
 app.use(cors())
 
+app.get('/', (req,res) => {
+  res.sendFile('index.html')
+})
 app.get('/word', (req, res) => {
   const options = {
     method: 'GET',
