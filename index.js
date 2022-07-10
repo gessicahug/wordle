@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req,res) => {
-  res.sendFile(__Wordle + '/index.html')
+  res.sendFile(__dirname + '/index.html')
 })
 app.get('/word', (req, res) => {
   const options = {
