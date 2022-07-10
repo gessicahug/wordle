@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req,res) => {
-  res.sendFile('index.html')
+  res.sendFile(path.join('index.html'))
 })
 app.get('/word', (req, res) => {
   const options = {
